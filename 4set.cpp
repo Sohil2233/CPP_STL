@@ -1,88 +1,103 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 int main()
 {
-    int arr[]={2,5,2,1,5};
-    set<int>st;
-    for(int i=0;i<5;i++)
+    int arr[] = {2, 5, 2, 1, 5};
+    set<int> st;
+    for (int i = 0; i < 5; i++)
     {
         st.insert(arr[i]);
     }
-    for(auto z:st)
+    for (auto z : st)
     {
-        cout<<z<<" ";
-    }// st->{1 2 5 }
-    cout<<endl;
-    
-    //erase functionallity
+        cout << z << " ";
+    } // st->{1 2 5 }
+    cout << endl;
+
+    // erase functionallity
     st.erase(st.begin());
-     for(auto z:st)
+    for (auto z : st)
     {
-        cout<<z<<" ";
-    }// st->{ 2 5 }
-    cout<<" //"<<endl;
+        cout << z << " ";
+    } // st->{ 2 5 }
+    cout << " //" << endl;
 
-// inserting 8 in set
+    // inserting 8 in set
     st.insert(8);
-    for(auto z:st)
+    for (auto z : st)
     {
-        cout<<z<<" ";
+        cout << z << " ";
     }
-    cout<<endl;
+    cout << endl;
     // st.erase(startIterator,endIterator)
-    st.erase(st.begin(), next(st.begin(), 2)); 
-    for(auto z:st)
+    st.erase(st.begin(), next(st.begin(), 2));
+    for (auto z : st)
     {
-        cout<<z<<" ";
+        cout << z << " ";
     }
-    cout<<endl;
-
+    cout << endl;
 
     st.insert(1);
     st.insert(2);
     st.insert(5);
-    for(auto z:st)
+    for (auto z : st)
     {
-        cout<<z<<" ";
+        cout << z << " ";
     }
     // st.erase(key)//delete the 5
     st.erase(5);
-    cout<<endl;
-    for(auto z:st)
+    cout << endl;
+    for (auto z : st)
     {
-        cout<<z<<" ";
+        cout << z << " ";
     }
-    cout<<endl;
+    cout << endl;
 
+    auto it = st.find(8); // it will iterate to 7
+    auto i = st.find(9);  // it=st.end();
 
-    auto it=st.find(8);//it will iterate to 7
-    auto i=st.find(9);//it=st.end();
+    st.emplace(0); // more faster than insert
+    cout << st.size() << endl;
 
-    st.emplace(0);//more faster than insert
-    cout<<st.size()<<endl;
-
-    for(auto z:st)
+    for (auto z : st)
     {
-        cout<<z<<" ";
+        cout << z << " ";
     }
-    cout<<endl;
-
-
+    cout << endl;
 
     // Unordered set
-    unordered_set<int>st1;
+    unordered_set<int> st1;
     st1.insert(1);
     st1.insert(6);
     st1.insert(2);
-    for(auto z:st1)
+    for (auto z : st1)
     {
-        cout<<z<<" ";
+        cout << z << " ";
     }
     // average time complexity is O(1)
     // always perfer unordered set
     // if tle->switch to set
     // worst case is linear in nature O(set size)
 
-
-
+    cout << endl;
+    // multi set
+    // all in sorted manner
+    // log n in size
+    multiset<int> ms;
+    ms.insert(1);
+    ms.insert(2);
+    ms.insert(2);
+    ms.insert(2);
+    ms.insert(2);
+    ms.insert(3);
+    ms.insert(3);
+    ms.insert(4);
+    // ms -> {1,2,2,3,3,4}
+    cout << ms.count(2) << endl;
+    ms.erase(ms.find(2));
+    for (auto z : ms)
+    {
+        cout << z << " ";
+    }
+    cout << endl;
 }
